@@ -33,7 +33,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/map-custom.js"
+            ]
           },
           "configurations": {
             "production": {
