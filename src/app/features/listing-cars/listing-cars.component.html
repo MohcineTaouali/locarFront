@@ -177,7 +177,7 @@
           
           <div class="section-goods">
             <div class="b-goods-group row">
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" *ngFor="let car of ListCars">
                 <div class="b-goods b-goods_back_sm">
                   <button class="flip-btn"><span></span><span class="flip-btn-mdl"></span><span></span></button>
                   <div class="flip-container">
@@ -186,7 +186,7 @@
                         <div class="b-goods__img"><img class="img-scale" src="assets/media/content/b-goods/294x223/1.jpg" alt="foto"></div>
                         <div class="b-goods__inner">
                           <div class="b-goods__header">
-                            <div class="b-goods__name">Audi a7 2019</div>
+                            <div class="b-goods__name">{{ car.name }}</div>
                             <ul class="ui-rating list-unstyled">
                               <li class="active"><i class="fas fa-star"></i></li>
                               <li class="active"><i class="fas fa-star"></i></li>
@@ -200,15 +200,15 @@
                           <div class="b-goods__footer">
                             <div class="b-goods__main-descr"><i class="ic flaticon-speedometer"></i>53,000 mi</div>
                             <div class="b-goods__price">
-                              <div class="b-goods__price-main bg-primary">$45,000</div>
+                              <div class="b-goods__price-main bg-primary">{{ car.price }} Dh</div>
                               <div class="b-goods__price-msrp">MSRP: $35,480</div>
                             </div>
                             <ul class="b-goods-descr list-unstyled">
                               <li class="b-goods-descr__item b-goods-descr__item_main"><i class="ic flaticon-speedometer"></i>53,000 mi</li>
-                              <li class="b-goods-descr__item">2019</li>
-                              <li class="b-goods-descr__item">Manual</li>
-                              <li class="b-goods-descr__item">Petrol</li>
-                              <li class="b-goods-descr__item">661 hp</li>
+                              <li class="b-goods-descr__item"><i class="fas fa-light fa-user mr-1"></i>{{ car.nbrPassager }}</li>
+                              <li class="b-goods-descr__item"><i class="fas fa-solid fa-suitcase-rolling mr-1"></i>{{ car.nbrBagages }}</li>
+                              <li class="b-goods-descr__item"><i class="fas fa-solid fa-door-open"></i>{{ car.nbrDoor }}</li>
+                              <li class="b-goods-descr__item" *ngIf="car.transmission==true"><i class="fas fa-light fa-snowflake"></i>A/C</li>
                             </ul>
                             <button class="b-goods__link text-primary" type="button">Compare</button>
                           </div>
@@ -217,306 +217,6 @@
                       <div class="flip__back">
                         <div class="b-goods__header">
                           <div class="b-goods__name">Audi a7 2019</div>
-                          <div class="b-goods__category">Classic SUV</div>
-                          <div class="flip-btn-hide"></div>
-                        </div>
-                        <div class="b-goods-info">
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Cruise Control Option</span><span class="b-goods-info__desc col-auto">Standard</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Transmission</span><span class="b-goods-info__desc col-auto">Automatic</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Mileage</span><span class="b-goods-info__desc col-auto">48,000 km</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Engine / Fuel Capacity</span><span class="b-goods-info__desc col-auto">V8 2.5L / 8 Gal</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Vehicle Layout</span><span class="b-goods-info__desc col-auto">5 Pass, 4-Door Hatch</span></div>
-                        </div>
-                        <div class="flip__footer">
-                          <button class="btn btn-primary btn-lg w-100">Read More</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- end .b-goods-->
-                
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="b-goods b-goods_back_sm">
-                  <button class="flip-btn"><span></span><span class="flip-btn-mdl"></span><span></span></button>
-                  <div class="flip-container">
-                    <div class="flipper">
-                      <div class="flip__front">
-                        <div class="b-goods__img"><img class="img-scale" src="assets/media/content/b-goods/294x223/2.jpg" alt="foto"></div>
-                        <div class="b-goods__inner">
-                          <div class="b-goods__header">
-                            <div class="b-goods__name">Subaru Ascent</div>
-                            <ul class="ui-rating list-unstyled">
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li><i class="fas fa-star"></i></li>
-                            </ul>
-                            <div class="b-goods__check"><img class="img-fluid" src="assets/media/content/b-goods/check.jpg" alt="AutoCheck"></div>
-                          </div>
-                          <div class="b-goods__info">Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt.</div>
-                          <div class="b-goods__footer">
-                            <div class="b-goods__main-descr"><i class="ic flaticon-speedometer"></i>53,000 mi</div>
-                            <div class="b-goods__price">
-                              <div class="b-goods__price-main bg-primary">$45,000</div>
-                              <div class="b-goods__price-msrp">MSRP: $35,480</div>
-                            </div>
-                            <ul class="b-goods-descr list-unstyled">
-                              <li class="b-goods-descr__item b-goods-descr__item_main"><i class="ic flaticon-speedometer"></i>53,000 mi</li>
-                              <li class="b-goods-descr__item">2019</li>
-                              <li class="b-goods-descr__item">Manual</li>
-                              <li class="b-goods-descr__item">Petrol</li>
-                              <li class="b-goods-descr__item">661 hp</li>
-                            </ul>
-                            <button class="b-goods__link text-primary" type="button">Compare</button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="flip__back">
-                        <div class="b-goods__header">
-                          <div class="b-goods__name">Subaru Ascent</div>
-                          <div class="b-goods__category">Classic SUV</div>
-                          <div class="flip-btn-hide"></div>
-                        </div>
-                        <div class="b-goods-info">
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Cruise Control Option</span><span class="b-goods-info__desc col-auto">Standard</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Transmission</span><span class="b-goods-info__desc col-auto">Automatic</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Mileage</span><span class="b-goods-info__desc col-auto">48,000 km</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Engine / Fuel Capacity</span><span class="b-goods-info__desc col-auto">V8 2.5L / 8 Gal</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Vehicle Layout</span><span class="b-goods-info__desc col-auto">5 Pass, 4-Door Hatch</span></div>
-                        </div>
-                        <div class="flip__footer">
-                          <button class="btn btn-primary btn-lg w-100">Read More</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- end .b-goods-->
-                
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="b-goods b-goods_back_sm">
-                  <button class="flip-btn"><span></span><span class="flip-btn-mdl"></span><span></span></button>
-                  <div class="flip-container">
-                    <div class="flipper">
-                      <div class="flip__front">
-                        <div class="b-goods__img"><img class="img-scale" src="assets/media/content/b-goods/294x223/3.jpg" alt="foto"></div>
-                        <div class="b-goods__inner">
-                          <div class="b-goods__header">
-                            <div class="b-goods__name">Infiniti QX50</div>
-                            <ul class="ui-rating list-unstyled">
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li><i class="fas fa-star"></i></li>
-                            </ul>
-                            <div class="b-goods__check"><img class="img-fluid" src="assets/media/content/b-goods/check.jpg" alt="AutoCheck"></div>
-                          </div>
-                          <div class="b-goods__info">Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt.</div>
-                          <div class="b-goods__footer">
-                            <div class="b-goods__main-descr"><i class="ic flaticon-speedometer"></i>53,000 mi</div>
-                            <div class="b-goods__price">
-                              <div class="b-goods__price-main bg-primary">$45,000</div>
-                              <div class="b-goods__price-msrp">MSRP: $35,480</div>
-                            </div>
-                            <ul class="b-goods-descr list-unstyled">
-                              <li class="b-goods-descr__item b-goods-descr__item_main"><i class="ic flaticon-speedometer"></i>53,000 mi</li>
-                              <li class="b-goods-descr__item">2019</li>
-                              <li class="b-goods-descr__item">Manual</li>
-                              <li class="b-goods-descr__item">Petrol</li>
-                              <li class="b-goods-descr__item">661 hp</li>
-                            </ul>
-                            <button class="b-goods__link text-primary" type="button">Compare</button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="flip__back">
-                        <div class="b-goods__header">
-                          <div class="b-goods__name">Infiniti QX50</div>
-                          <div class="b-goods__category">Classic SUV</div>
-                          <div class="flip-btn-hide"></div>
-                        </div>
-                        <div class="b-goods-info">
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Cruise Control Option</span><span class="b-goods-info__desc col-auto">Standard</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Transmission</span><span class="b-goods-info__desc col-auto">Automatic</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Mileage</span><span class="b-goods-info__desc col-auto">48,000 km</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Engine / Fuel Capacity</span><span class="b-goods-info__desc col-auto">V8 2.5L / 8 Gal</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Vehicle Layout</span><span class="b-goods-info__desc col-auto">5 Pass, 4-Door Hatch</span></div>
-                        </div>
-                        <div class="flip__footer">
-                          <button class="btn btn-primary btn-lg w-100">Read More</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- end .b-goods-->
-                
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="b-goods b-goods_back_sm">
-                  <button class="flip-btn"><span></span><span class="flip-btn-mdl"></span><span></span></button>
-                  <div class="flip-container">
-                    <div class="flipper">
-                      <div class="flip__front">
-                        <div class="b-goods__img"><img class="img-scale" src="assets/media/content/b-goods/294x223/1.jpg" alt="foto"></div>
-                        <div class="b-goods__inner">
-                          <div class="b-goods__header">
-                            <div class="b-goods__name">Audi a7 2019</div>
-                            <ul class="ui-rating list-unstyled">
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li><i class="fas fa-star"></i></li>
-                            </ul>
-                            <div class="b-goods__check"><img class="img-fluid" src="assets/media/content/b-goods/check.jpg" alt="AutoCheck"></div>
-                          </div>
-                          <div class="b-goods__info">Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt.</div>
-                          <div class="b-goods__footer">
-                            <div class="b-goods__main-descr"><i class="ic flaticon-speedometer"></i>53,000 mi</div>
-                            <div class="b-goods__price">
-                              <div class="b-goods__price-main bg-primary">$45,000</div>
-                              <div class="b-goods__price-msrp">MSRP: $35,480</div>
-                            </div>
-                            <ul class="b-goods-descr list-unstyled">
-                              <li class="b-goods-descr__item b-goods-descr__item_main"><i class="ic flaticon-speedometer"></i>53,000 mi</li>
-                              <li class="b-goods-descr__item">2019</li>
-                              <li class="b-goods-descr__item">Manual</li>
-                              <li class="b-goods-descr__item">Petrol</li>
-                              <li class="b-goods-descr__item">661 hp</li>
-                            </ul>
-                            <button class="b-goods__link text-primary" type="button">Compare</button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="flip__back">
-                        <div class="b-goods__header">
-                          <div class="b-goods__name">Audi a7 2019</div>
-                          <div class="b-goods__category">Classic SUV</div>
-                          <div class="flip-btn-hide"></div>
-                        </div>
-                        <div class="b-goods-info">
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Cruise Control Option</span><span class="b-goods-info__desc col-auto">Standard</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Transmission</span><span class="b-goods-info__desc col-auto">Automatic</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Mileage</span><span class="b-goods-info__desc col-auto">48,000 km</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Engine / Fuel Capacity</span><span class="b-goods-info__desc col-auto">V8 2.5L / 8 Gal</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Vehicle Layout</span><span class="b-goods-info__desc col-auto">5 Pass, 4-Door Hatch</span></div>
-                        </div>
-                        <div class="flip__footer">
-                          <button class="btn btn-primary btn-lg w-100">Read More</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- end .b-goods-->
-                
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="b-goods b-goods_back_sm">
-                  <button class="flip-btn"><span></span><span class="flip-btn-mdl"></span><span></span></button>
-                  <div class="flip-container">
-                    <div class="flipper">
-                      <div class="flip__front">
-                        <div class="b-goods__img"><img class="img-scale" src="assets/media/content/b-goods/294x223/2.jpg" alt="foto"></div>
-                        <div class="b-goods__inner">
-                          <div class="b-goods__header">
-                            <div class="b-goods__name">Subaru Ascent</div>
-                            <ul class="ui-rating list-unstyled">
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li><i class="fas fa-star"></i></li>
-                            </ul>
-                            <div class="b-goods__check"><img class="img-fluid" src="assets/media/content/b-goods/check.jpg" alt="AutoCheck"></div>
-                          </div>
-                          <div class="b-goods__info">Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt.</div>
-                          <div class="b-goods__footer">
-                            <div class="b-goods__main-descr"><i class="ic flaticon-speedometer"></i>53,000 mi</div>
-                            <div class="b-goods__price">
-                              <div class="b-goods__price-main bg-primary">$45,000</div>
-                              <div class="b-goods__price-msrp">MSRP: $35,480</div>
-                            </div>
-                            <ul class="b-goods-descr list-unstyled">
-                              <li class="b-goods-descr__item b-goods-descr__item_main"><i class="ic flaticon-speedometer"></i>53,000 mi</li>
-                              <li class="b-goods-descr__item">2019</li>
-                              <li class="b-goods-descr__item">Manual</li>
-                              <li class="b-goods-descr__item">Petrol</li>
-                              <li class="b-goods-descr__item">661 hp</li>
-                            </ul>
-                            <button class="b-goods__link text-primary" type="button">Compare</button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="flip__back">
-                        <div class="b-goods__header">
-                          <div class="b-goods__name">Subaru Ascent</div>
-                          <div class="b-goods__category">Classic SUV</div>
-                          <div class="flip-btn-hide"></div>
-                        </div>
-                        <div class="b-goods-info">
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Cruise Control Option</span><span class="b-goods-info__desc col-auto">Standard</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Transmission</span><span class="b-goods-info__desc col-auto">Automatic</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Mileage</span><span class="b-goods-info__desc col-auto">48,000 km</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Engine / Fuel Capacity</span><span class="b-goods-info__desc col-auto">V8 2.5L / 8 Gal</span></div>
-                          <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Vehicle Layout</span><span class="b-goods-info__desc col-auto">5 Pass, 4-Door Hatch</span></div>
-                        </div>
-                        <div class="flip__footer">
-                          <button class="btn btn-primary btn-lg w-100">Read More</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- end .b-goods-->
-                
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="b-goods b-goods_back_sm">
-                  <button class="flip-btn"><span></span><span class="flip-btn-mdl"></span><span></span></button>
-                  <div class="flip-container">
-                    <div class="flipper">
-                      <div class="flip__front">
-                        <div class="b-goods__img"><img class="img-scale" src="assets/media/content/b-goods/294x223/3.jpg" alt="foto"></div>
-                        <div class="b-goods__inner">
-                          <div class="b-goods__header">
-                            <div class="b-goods__name">Infiniti QX50</div>
-                            <ul class="ui-rating list-unstyled">
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li class="active"><i class="fas fa-star"></i></li>
-                              <li><i class="fas fa-star"></i></li>
-                            </ul>
-                            <div class="b-goods__check"><img class="img-fluid" src="assets/media/content/b-goods/check.jpg" alt="AutoCheck"></div>
-                          </div>
-                          <div class="b-goods__info">Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt.</div>
-                          <div class="b-goods__footer">
-                            <div class="b-goods__main-descr"><i class="ic flaticon-speedometer"></i>53,000 mi</div>
-                            <div class="b-goods__price">
-                              <div class="b-goods__price-main bg-primary">$45,000</div>
-                              <div class="b-goods__price-msrp">MSRP: $35,480</div>
-                            </div>
-                            <ul class="b-goods-descr list-unstyled">
-                              <li class="b-goods-descr__item b-goods-descr__item_main"><i class="ic flaticon-speedometer"></i>53,000 mi</li>
-                              <li class="b-goods-descr__item">2019</li>
-                              <li class="b-goods-descr__item">Manual</li>
-                              <li class="b-goods-descr__item">Petrol</li>
-                              <li class="b-goods-descr__item">661 hp</li>
-                            </ul>
-                            <button class="b-goods__link text-primary" type="button">Compare</button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="flip__back">
-                        <div class="b-goods__header">
-                          <div class="b-goods__name">Infiniti QX50</div>
                           <div class="b-goods__category">Classic SUV</div>
                           <div class="flip-btn-hide"></div>
                         </div>
