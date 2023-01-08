@@ -10,10 +10,10 @@ export class SearchCarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  foods: any[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
+  citys: any[] = [
+    {value: 'Casablanca', viewValue: 'Steak'},
+    {value: 'rabat', viewValue: 'Pizza'},
+    {value: 'Fes', viewValue: 'Tacos'},
   ];
 
 }

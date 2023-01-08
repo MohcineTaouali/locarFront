@@ -28,14 +28,9 @@
                   </div>
                   <div class="col-md-4">
                      <div class="form-group">
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="form-group">
-                        <select class="selectpicker" data-width="100%" title="Make Year" multiple="multiple" data-max-options="1" data-style="ui-select">
-                           <option>Select 1</option>
-                           <option>Select 2</option>
-                           <option>Select 3</option>
+                        <label for="cityForCar">choose the city</label>
+                        <select class="form-control" id="cityForCar">
+                          <option *ngFor="let city of citys">{{city.value}}</option>
                         </select>
                      </div>
                   </div>

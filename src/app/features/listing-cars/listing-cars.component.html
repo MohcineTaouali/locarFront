@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-headerTwo></app-headerTwo>
 <app-title-listing-cars></app-title-listing-cars>
 <app-breadcrumb></app-breadcrumb>
 
@@ -177,16 +177,16 @@
           
           <div class="section-goods">
             <div class="b-goods-group row">
-              <div class="col-lg-4 col-md-6" *ngFor="let car of ListCars">
-                <div class="b-goods b-goods_back_sm">
-                  <button class="flip-btn"><span></span><span class="flip-btn-mdl"></span><span></span></button>
+              <div class="col-lg-4 col-md-6" *ngFor="let car of ListCars | paginate: { itemsPerPage: 10, currentPage: p }; let i=index">
+                <div class="b-goods b-goods_back_sm" [class.flip-active]="selectedItem == i">
+                  <button class="flip-btn" (click)="selectedItem=i"><span></span><span class="flip-btn-mdl"></span><span></span></button>
                   <div class="flip-container">
                     <div class="flipper">
                       <div class="flip__front">
                         <div class="b-goods__img"><img class="img-scale" src="assets/media/content/b-goods/294x223/1.jpg" alt="foto"></div>
                         <div class="b-goods__inner">
                           <div class="b-goods__header">
-                            <div class="b-goods__name">{{ car.name }}</div>
+                            <div class="b-goods__name">{{ car.name }} </div>
                             <ul class="ui-rating list-unstyled">
                               <li class="active"><i class="fas fa-star"></i></li>
                               <li class="active"><i class="fas fa-star"></i></li>
@@ -218,7 +218,7 @@
                         <div class="b-goods__header">
                           <div class="b-goods__name">Audi a7 2019</div>
                           <div class="b-goods__category">Classic SUV</div>
-                          <div class="flip-btn-hide"></div>
+                          <div class="flip-btn-hide" (click)="selectedItem=-1"></div>
                         </div>
                         <div class="b-goods-info">
                           <div class="b-goods-info__item row no-gutters justify-content-between"><span class="b-goods-info__title col-auto">Cruise Control Option</span><span class="b-goods-info__desc col-auto">Standard</span></div>
@@ -238,7 +238,8 @@
                 
               </div>
             </div>
-            <nav class="mt-3" aria-label="Page navigation example">
+            <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+          <!--  <nav class="mt-3" aria-label="Page navigation example">
               <ul class="pagination justify-content-center">
                 <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -246,7 +247,7 @@
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
               </ul>
-            </nav>
+            </nav> -->
           </div>
         </div>
       </div>

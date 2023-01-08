@@ -13,9 +13,16 @@ export class MarkCarsComponent implements OnInit {
   ListCars: Car[] = [];
   typeCar:TypeVehicule[] = [];
   valueAttrType:string="";
-  marks: any[] =["BMW", "Renault", "land rover"];
+  marks: any[] = [
+    {value: 'Renault', viewValue: ''},
+    {value: 'BMW', viewValue: ''},
+    {value: 'Mercedes', viewValue: ''},
+    {value: 'land rover', viewValue: ''},
+  ];
   valuMarque:string="";
   datafilter:string="";
+
+  p: number = 1;
 
   constructor(private carService:CarService, private elementRef: ElementRef) {
    }

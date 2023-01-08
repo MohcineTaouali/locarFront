@@ -13,6 +13,8 @@ export class ListingCarsComponent implements OnInit {
 
   ListCars: Car[] = [];
   typeCar:TypeVehicule[] = [];
+  p: number = 1;
+  selectedItem=-1;
 
   constructor(private carService:CarService) { }
 
@@ -38,5 +40,7 @@ export class ListingCarsComponent implements OnInit {
    });
 
   }
+
+
 
 }
