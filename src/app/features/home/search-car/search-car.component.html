@@ -1,6 +1,6 @@
 <div class="group-sections">
    <div class="container">
-      <form class="b-main-filter bg-primary">
+      <form [formGroup]="searchCarForm" class="b-main-filter bg-primary">
          <div class="row align-items-center">
             <div class="col-lg">
                <div class="form-row">
@@ -8,7 +8,7 @@
                      <div class="form-group">
                         <mat-form-field appearance="fill">
                            <mat-label>Date Départ</mat-label>
-                           <input matInput [matDatepicker]="dateDepart">
+                           <input matInput [matDatepicker]="dateDepart" formControlName="dateDepart" [(ngModel)]="dateDebut">
                            <mat-hint>MM/DD/YYYY</mat-hint>
                            <mat-datepicker-toggle matIconSuffix [for]="dateDepart"></mat-datepicker-toggle>
                            <mat-datepicker #dateDepart></mat-datepicker>
@@ -19,7 +19,7 @@
                      <div class="form-group">
                         <mat-form-field appearance="fill">
                            <mat-label>Date Retour</mat-label>
-                           <input matInput [matDatepicker]="dateRetour">
+                           <input matInput [matDatepicker]="dateRetour" formControlName="dateRetour" [(ngModel)]="dateFin">
                            <mat-hint>MM/DD/YYYY</mat-hint>
                            <mat-datepicker-toggle matIconSuffix [for]="dateRetour"></mat-datepicker-toggle>
                            <mat-datepicker #dateRetour></mat-datepicker>
@@ -28,14 +28,9 @@
                   </div>
                   <div class="col-md-4">
                      <div class="form-group">
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="form-group">
-                        <select class="selectpicker" data-width="100%" title="Make Year" multiple="multiple" data-max-options="1" data-style="ui-select">
-                           <option>Select 1</option>
-                           <option>Select 2</option>
-                           <option>Select 3</option>
+                        <label for="cityForCar">choose the city</label>
+                        <select class="form-control" id="cityForCar">
+                          <option *ngFor="let city of citys">{{city.value}}</option>
                         </select>
                      </div>
                   </div>
@@ -62,7 +57,7 @@
                </div>
             </div>
             <div class="col-lg-auto">
-               <button class="btn btn-secondary btn-lg ml-lg-3"><i class="ic icon-magnifier"></i> search</button>
+               <button class="btn btn-secondary btn-lg ml-lg-3" (click)="getDispoCar()"><i class="ic icon-magnifier"></i> search</button>
             </div>
          </div>
       </form>

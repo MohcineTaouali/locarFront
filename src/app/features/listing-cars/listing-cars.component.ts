@@ -13,12 +13,17 @@ export class ListingCarsComponent implements OnInit {
 
   ListCars: Car[] = [];
   typeCar:TypeVehicule[] = [];
+  p: number = 1;
+  selectedItem=-1;
+
+  formatedDateDebut:string='';
+  formatedDateFin:string='';
 
   constructor(private carService:CarService) { }
 
   ngOnInit(): void {
 
-    this.getVehicules();
+    this.getDispoCar();
 
     $(function() {
       $('.flip-btn').on( 'click', function() {
@@ -36,7 +41,19 @@ export class ListingCarsComponent implements OnInit {
     this.ListCars=data;
     console.log("my array :", this.ListCars);
    });
-
   }
+
+  getDispoCar(){
+    // let formatedDateDebut = this.carService.getDateDebut; 
+    // let formatedDateFin = this.carService.getDateFin;
+    // console.log("date debut from service", formatedDateDebut );
+    // console.log("date fin from service", formatedDateFin );
+    this.carService.findDispoCar().subscribe(data =>{
+      this.ListCars=data;
+      console.log("cars dispo list :", data);
+    });
+  }
+
+
 
 }

@@ -9,10 +9,10 @@
        <div class="b-isotope">
           <ul class="b-isotope-filter list-unstyled">
              <li class="current"><a href="" data-filter="all">Show All</a></li>
-             <li *ngFor="let mark of marks"><a datafilter="Renault" (click)="getValueByMark()">{{ mark }}</a></li>
+             <li *ngFor="let mark of marks"><a [attr.Datafiltre]="mark.value" (click)="getValueByMark()">{{ mark.value }}</a></li>
           </ul>
           <ul class="b-isotope-grid grid list-unstyled row no-gutters">
-             <li class="b-isotope-grid__item grid-item all mercedes honda col-lg-4 col-md-6" *ngFor="let car of ListCars">
+             <li class="b-isotope-grid__item grid-item all mercedes honda col-lg-4 col-md-6" *ngFor="let car of ListCars | paginate: { itemsPerPage: 10, currentPage: p }">
                 <div class="b-goods">
                    <div class="flip-container">
                       <div class="flipper">
@@ -54,6 +54,7 @@
                 <!-- end .b-goods-->
              </li>
           </ul>
+          <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
        </div>
        <!-- end .b-isotope-->
     </div>
