@@ -1,4 +1,4 @@
-<section class="section-default bg-light">
+<section class="section-default bg-light" id="allCar">
     <div class="container">
        <div class="text-center">
           <div class="ui-subtitle">welcome to isnaider auto dealers</div>
@@ -8,16 +8,17 @@
        </div>
        <div class="b-isotope">
           <ul class="b-isotope-filter list-unstyled">
-             <li class="current"><a href="" data-filter="all">Show All</a></li>
-             <li *ngFor="let mark of marks"><a [attr.Datafiltre]="mark.value" (click)="getValueByMark()">{{ mark.value }}</a></li>
+            <!-- <li class="current"><a href="" data-filter="all">Show All</a></li> -->
+             <li *ngFor="let mark of marks" [ngClass]="{'current': mark.value === currentItem}"><a [attr.Datafiltre]="mark.value" (click)="getValueByMark(mark.value)">{{ mark.value }}</a></li>
           </ul>
+          <div id="page-preloader" *ngIf="loadingSpinner"><span class="spinner border-t_second_b border-t_prim_a"></span></div>
           <ul class="b-isotope-grid grid list-unstyled row no-gutters">
              <li class="b-isotope-grid__item grid-item all mercedes honda col-lg-4 col-md-6" *ngFor="let car of ListCars | paginate: { itemsPerPage: 10, currentPage: p }">
                 <div class="b-goods">
                    <div class="flip-container">
                       <div class="flipper">
                          <div class="flip__front">
-                            <div class="b-goods__img"><a href="#"><img class="img-scale" src="assets/media/content/b-goods/360x260/10.jpg" alt="foto"/></a></div>
+                            <div class="b-goods__img" *ngFor="let img of car.imageVs; let first = first;"><a href="#"><img class="img-scale" *ngIf="first" src="http://127.0.0.1:8000/uploads/{{ img.name }}" alt="foto"/></a></div>
                             <div class="b-goods__inner">
                                <div class="b-goods__header">
                                   <div class="b-goods__name">{{ car.name }}</div> 

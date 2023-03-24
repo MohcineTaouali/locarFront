@@ -24,4 +24,23 @@
     src: url('assets/fonts/stroke/fonts/Stroke-Gap-Icons.ttf');
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0;
+    font-family: 15px/1.7334 'Arimo';
+    color: #555555; 
+}
+.ngx-pagination .current {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    line-height: 43px;
+    padding: 0 5px !important;
+    margin-left: 2px;
+    margin-right: 3px;
+    border-radius: 50%;
+    border: 1px solid #dddddd;
+    transition: all .3s;
+    z-index: 1;
+    color: #FFF;
+    background-color: #222222 !important;
+}

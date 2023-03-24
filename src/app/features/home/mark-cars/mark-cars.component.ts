@@ -14,13 +14,16 @@ export class MarkCarsComponent implements OnInit {
   typeCar:TypeVehicule[] = [];
   valueAttrType:string="";
   marks: any[] = [
-    {value: 'Renault', viewValue: ''},
-    {value: 'BMW', viewValue: ''},
-    {value: 'Mercedes', viewValue: ''},
-    {value: 'land rover', viewValue: ''},
+    {value: 'all'},
+    {value: 'renault'},
+    {value: 'land rover'},
+    {value: 'kia'},
+    {value: 'fiat'},
   ];
+  currentItem:any="all";
   valuMarque:string="";
   datafilter:string="";
+  public loadingSpinner:boolean=true;
 
   p: number = 1;
 
@@ -36,14 +39,17 @@ export class MarkCarsComponent implements OnInit {
   getVehicules(){
     this.carService.findAll().subscribe(data =>{
      this.ListCars=data;
+     this.loadingSpinner=false;
      console.log("my array :", this.ListCars);
     });
    }
 
-   getValueByMark(){
-    this.valuMarque="renault";
-    this.carService.findByMarque(this.valuMarque).subscribe(data =>{
+   getValueByMark(valuMarque:string){
+    this.loadingSpinner=true;
+    this.carService.findByMarque(valuMarque).subscribe(data =>{
       this.ListCars=data;
+      this.loadingSpinner=false;
+      this.currentItem=valuMarque;
       console.log("my array filtred :", this.ListCars);
     });
    }

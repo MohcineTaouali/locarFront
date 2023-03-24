@@ -6,6 +6,8 @@ import { ListingCarsRoutingModule } from './listing-cars-routing.module';
 import { TitleListingCarsComponent } from './title-listing-cars/title-listing-cars.component';
 import { ListingCarsComponent } from './listing-cars.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -20,6 +22,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     SharedModule,
     ListingCarsRoutingModule,
     NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ]
 })

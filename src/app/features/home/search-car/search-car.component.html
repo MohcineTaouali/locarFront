@@ -1,63 +1,46 @@
-<div class="group-sections">
+<div class="group-sections" id="searshCarBlock">
    <div class="container">
       <form [formGroup]="searchCarForm" class="b-main-filter bg-primary">
          <div class="row align-items-center">
             <div class="col-lg">
                <div class="form-row">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                      <div class="form-group">
-                        <mat-form-field appearance="fill">
-                           <mat-label>Date Départ</mat-label>
-                           <input matInput [matDatepicker]="dateDepart" formControlName="dateDepart" [(ngModel)]="dateDebut">
-                           <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-form-field appearance="fill" id="dateDepart">
+                           <mat-label class="labelDateDepart">Date Départ :</mat-label>
+                           <input matInput [matDatepicker]="dateDepart" formControlName="dateDepart" [(ngModel)]="dateDebut" [min]="minDate">
                            <mat-datepicker-toggle matIconSuffix [for]="dateDepart"></mat-datepicker-toggle>
                            <mat-datepicker #dateDepart></mat-datepicker>
                          </mat-form-field>
                       </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                      <div class="form-group">
-                        <mat-form-field appearance="fill">
-                           <mat-label>Date Retour</mat-label>
-                           <input matInput [matDatepicker]="dateRetour" formControlName="dateRetour" [(ngModel)]="dateFin">
-                           <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-form-field appearance="fill" id="dateRetour">
+                           <mat-label class="labelDateRetour">Date Retour :</mat-label>
+                           <input matInput [matDatepicker]="dateRetour" formControlName="dateRetour" [(ngModel)]="dateFin" [min]="dateDebut">
                            <mat-datepicker-toggle matIconSuffix [for]="dateRetour"></mat-datepicker-toggle>
                            <mat-datepicker #dateRetour></mat-datepicker>
                          </mat-form-field>
                      </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                      <div class="form-group">
-                        <label for="cityForCar">choose the city</label>
-                        <select class="form-control" id="cityForCar">
-                          <option *ngFor="let city of citys">{{city.value}}</option>
-                        </select>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="form-group">
-                        <select class="selectpicker" data-width="100%" title="Body Type" multiple="multiple" data-max-options="1" data-style="ui-select">
-                           <option>Select 1</option>
-                           <option>Select 2</option>
-                           <option>Select 3</option>
-                        </select>
-                     </div>
-                  </div>
-                  <div class="col-md-4 align-self-end">
-                     <div class="form-group">
-                        <div class="b-main-filter-slider ui-filter-slider pb-3">
-                           <div id="filterPrice"></div>
-                           <div class="b-main-filter__row">
-                              <input class="b-main-filter__item" id="input-with-keypress-0"/>
-                              <input class="b-main-filter__item" id="input-with-keypress-1"/>
-                           </div>
-                        </div>
+                        <label for="cityForCar" class="labelCity">Pick-up Location: </label>
+                        <input type="text" class="form-control" formControlName="city" [(ngModel)]="citySelected" (input)="onInputChange()" />
+                        <ul id="listCitySearched">
+                           <li *ngFor="let city of filteredCities" (click)="getValueCity($event)">{{ city }}</li>
+                         </ul>
+                        <!-- <select class="form-control" id="cityForCar" formControlName="city" [(ngModel)]="citySelected">
+                          <option value="" disabled selected>Select</option>
+                          <option *ngFor="let city of citys" [value]="city.value">city.value</option>
+                        </select> -->
                      </div>
                   </div>
                </div>
             </div>
             <div class="col-lg-auto">
-               <button class="btn btn-secondary btn-lg ml-lg-3" (click)="getDispoCar()"><i class="ic icon-magnifier"></i> search</button>
+               <button class="btn btn-secondary btn-lg ml-lg-3" (click)="getDispoCar()" routerLink="cars"><i class="ic icon-magnifier"></i> search</button>
             </div>
          </div>
       </form>
